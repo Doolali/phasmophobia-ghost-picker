@@ -126,7 +126,7 @@
 
         <div class="row">
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card spirit-box fingerprints ghost-writing">
                     <div class="card-header">
                         <h3>Spirit</h3>
@@ -141,7 +141,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card spirit-box fingerprints freezing">
                     <div class="card-header">
                         <h3>Wraith</h3>
@@ -156,7 +156,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card ghost-orb emf freezing">
                     <div class="card-header">
                         <h3>Phantom</h3>
@@ -171,7 +171,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card ghost-orb spirit-box fingerprints">
                     <div class="card-header">
                         <h3>Poltergeist</h3>
@@ -186,7 +186,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card emf freezing fingerprints">
                     <div class="card-header">
                         <h3>Banshee</h3>
@@ -201,7 +201,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card emf ghost-orb spirit-box">
                     <div class="card-header">
                         <h3>Jinn</h3>
@@ -216,7 +216,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card freezing ghost-orb spirit-box">
                     <div class="card-header">
                         <h3>Mare</h3>
@@ -231,7 +231,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card emf fingerprints ghost-writing">
                     <div class="card-header">
                         <h3>Revenant</h3>
@@ -246,7 +246,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card emf ghost-orb ghost-writing">
                     <div class="card-header">
                         <h3>Shade</h3>
@@ -261,7 +261,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card spirit-box freezing ghost-writing">
                     <div class="card-header">
                         <h3>Demon</h3>
@@ -276,7 +276,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card ghost-orb freezing ghost-writing">
                     <div class="card-header">
                         <h3>Yurei</h3>
@@ -291,7 +291,7 @@
                 </div>
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-6 col-md-4 mb-4">
                 <div class="card emf spirit-box ghost-writing">
                     <div class="card-header">
                         <h3>Oni</h3>
@@ -314,6 +314,7 @@
             $(".card").each(function (index) {
                 $(this).removeClass("green");
                 $(this).removeClass("red");
+                $(this).parent().hide();
             });
 
             let classes = '';
@@ -397,6 +398,20 @@
                         $(this).addClass("red");
                     }
                     $(this).removeClass("green");
+                });
+            }
+
+            $(".red").each(function (index) {
+                $(this).parent().show();
+            });
+            
+            $(".green").each(function (index) {
+                $(this).parent().show();
+            });
+
+            if ($('.green').length == 0 && $('.red').length == 0) {
+                $(".card").each(function (index) {
+                    $(this).parent().show();
                 });
             }
         }
