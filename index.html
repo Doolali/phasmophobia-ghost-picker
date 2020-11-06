@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+        integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+
+
+    <style>
+        .red {
+            background-color: palevioletred;
+        }
+
+        .green {
+            background-color: palegreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="mx-auto text-center">
+            <h1 class="display-4">Ghost Picker+</h1>
+        </div>
+
+        <p>Use the "Found" section to identify ghost based on evidence you have found.</p>
+        <p>Use the "Definite Not Found" to eliminate ghost on evidence that you know for certain doesn't exist.
+            <br /><b><i>If
+                    they were green, these will be highlighted in red, just incase you made a mistake!</i></b></p>
+
+        <div class="row mb-4">
+            <div class="col-6">
+                <h2>Found</h2>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="spirit-box-yes"
+                        onclick="checkGhosts()">
+                    <label class="form-check-label" for="spirit-box-yes">
+                        Spirit Box
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="fingerprints-yes"
+                        onclick="checkGhosts()">
+                    <label class="form-check-label" for="fingerprints-yes">
+                        Fingerprints
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="ghost-writing-yes"
+                        onclick="checkGhosts()">
+                    <label class="form-check-label" for="ghost-writing-yes">
+                        Ghost Writing
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="ghost-orb-yes" onclick="checkGhosts()">
+                    <label class="form-check-label" for="ghost-orb-yes">
+                        Ghost Orb
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="freezing-yes" onclick="checkGhosts()">
+                    <label class="form-check-label" for="freezing-yes">
+                        Freezing Temperatures
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="emf-yes" onclick="checkGhosts()">
+                    <label class="form-check-label" for="emf-yes">
+                        EMF Level 5
+                    </label>
+                </div>
+            </div>
+            <div class="col-6">
+                <h2>Definitely Not Found</h2>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="spirit-box-no" onclick="checkGhosts()">
+                    <label class="form-check-label" for="spirit-box-no">
+                        Spirit Box
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="fingerprints-no"
+                        onclick="checkGhosts()">
+                    <label class="form-check-label" for="fingerprints-no">
+                        Fingerprints
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="ghost-writing-no"
+                        onclick="checkGhosts()">
+                    <label class="form-check-label" for="ghost-writing-no">
+                        Ghost Writing
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="ghost-orb-no" onclick="checkGhosts()">
+                    <label class="form-check-label" for="ghost-orb-no">
+                        Ghost Orb
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="freezing-no" onclick="checkGhosts()">
+                    <label class="form-check-label" for="freezing-no">
+                        Freezing Temperatures
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="emf-no" onclick="checkGhosts()">
+                    <label class="form-check-label" for="emf-no">
+                        EMF Level 5
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-4 mb-4">
+                <div class="card spirit-box fingerprints ghost-writing">
+                    <div class="card-header">
+                        <h3>Spirit</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Spirit Box</li>
+                            <li>Fingerprints</li>
+                            <li>Ghost Writing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card spirit-box fingerprints freezing">
+                    <div class="card-header">
+                        <h3>Wraith</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Spirit Box</li>
+                            <li>Fingerprints</li>
+                            <li>Freezing Temperatures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card ghost-orb emf freezing">
+                    <div class="card-header">
+                        <h3>Phantom</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Ghost Orb</li>
+                            <li>EMF Level 5</li>
+                            <li>Freezing Temperatures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card ghost-orb spirit-box fingerprints">
+                    <div class="card-header">
+                        <h3>Poltergeist</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Spirit Box</li>
+                            <li>Fingerprints</li>
+                            <li>Ghost Orb</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card emf freezing fingerprints">
+                    <div class="card-header">
+                        <h3>Banshee</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>EMF Level 5</li>
+                            <li>Fingerprints</li>
+                            <li>Freezing Temperatures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card emf ghost-orb spirit-box">
+                    <div class="card-header">
+                        <h3>Jinn</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>EMF Level 5</li>
+                            <li>Spirit Box</li>
+                            <li>Ghost Orb</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card freezing ghost-orb spirit-box">
+                    <div class="card-header">
+                        <h3>Mare</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Freezing Temperatures</li>
+                            <li>Spirit Box</li>
+                            <li>Ghost Orb</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card emf fingerprints ghost-writing">
+                    <div class="card-header">
+                        <h3>Revenant</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>EMF Level 5</li>
+                            <li>Fingerprints</li>
+                            <li>Ghost Writing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card emf ghost-orb ghost-writing">
+                    <div class="card-header">
+                        <h3>Shade</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>EMF Level 5</li>
+                            <li>Ghost Orb</li>
+                            <li>Ghost Writing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card spirit-box freezing ghost-writing">
+                    <div class="card-header">
+                        <h3>Demon</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Spirit Box</li>
+                            <li>Freezing Temperatures</li>
+                            <li>Ghost Writing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card ghost-orb freezing ghost-writing">
+                    <div class="card-header">
+                        <h3>Yurei</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Ghost Orb</li>
+                            <li>Freezing Temperatures</li>
+                            <li>Ghost Writing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 mb-4">
+                <div class="card emf spirit-box ghost-writing">
+                    <div class="card-header">
+                        <h3>Oni</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>EMF Level 5</li>
+                            <li>Spirit Box</li>
+                            <li>Ghost Writing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function checkGhosts() {
+            $(".card").each(function (index) {
+                $(this).removeClass("green");
+                $(this).removeClass("red");
+            });
+
+            let classes = '';
+
+            if (document.getElementById('spirit-box-yes').checked) {
+                classes += '.spirit-box';
+            }
+
+            if (document.getElementById('fingerprints-yes').checked) {
+                classes += '.fingerprints';
+            }
+
+            if (document.getElementById('ghost-orb-yes').checked) {
+                classes += '.ghost-orb';
+            }
+
+            if (document.getElementById('ghost-writing-yes').checked) {
+                classes += '.ghost-writing';
+            }
+
+            if (document.getElementById('emf-yes').checked) {
+                classes += '.emf';
+            }
+
+            if (document.getElementById('freezing-yes').checked) {
+                classes += '.freezing';
+            }
+
+            $(classes).each(function (index) {
+                $(this).addClass("green");
+            });
+
+            if (document.getElementById('spirit-box-no').checked) {
+                $(".spirit-box").each(function (index) {
+                    if ($(this).hasClass("green")) {
+                        $(this).addClass("red");
+                    }
+                    $(this).removeClass("green");
+                });
+            }
+
+            if (document.getElementById('fingerprints-no').checked) {
+                $(".fingerprints").each(function (index) {
+                    if ($(this).hasClass("green")) {
+                        $(this).addClass("red");
+                    }
+                    $(this).removeClass("green");
+                });
+            }
+
+            if (document.getElementById('ghost-orb-no').checked) {
+                $(".ghost-orb").each(function (index) {
+                    if ($(this).hasClass("green")) {
+                        $(this).addClass("red");
+                    }
+                    $(this).removeClass("green");
+                });
+            }
+
+            if (document.getElementById('ghost-writing-no').checked) {
+                $(".ghost-writing").each(function (index) {
+                    if ($(this).hasClass("green")) {
+                        $(this).addClass("red");
+                    }
+                    $(this).removeClass("green");
+                });
+            }
+
+            if (document.getElementById('emf-no').checked) {
+                $(".emf").each(function (index) {
+                    if ($(this).hasClass("green")) {
+                        $(this).addClass("red");
+                    }
+                    $(this).removeClass("green");
+                });
+            }
+
+            if (document.getElementById('freezing-no').checked) {
+                $(".freezing").each(function (index) {
+                    if ($(this).hasClass("green")) {
+                        $(this).addClass("red");
+                    }
+                    $(this).removeClass("green");
+                });
+            }
+        }
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
+        integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+</body>
+
+</html>
