@@ -18,6 +18,10 @@
             background-color: palevioletred;
         }
 
+        .text-red {
+            color: red;
+        }
+
         .green {
             background-color: palegreen;
         }
@@ -25,6 +29,7 @@
 </head>
 
 <body>
+    <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" autoplay="false"></audio>
 
     <main class="container">
 
@@ -121,6 +126,15 @@
                         EMF Level 5
                     </label>
                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <button class="btn btn-primary" onclick="reset()">Reset</button>
+                <button class="btn btn-primary" onclick="startTimer(120)">2 Minute Timer (Intermediate)</button>
+                <button class="btn btn-primary" onclick="startTimer(300)">5 Minute Timer (Amateur)</button>
+                <h3 id="timer"></h3>
             </div>
         </div>
 
@@ -309,7 +323,56 @@
         </div>
     </main>
 
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
+        integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
     <script>
+        function reset() {
+            location.reload();
+        }
+
+        var interval;
+        function startTimer(duration) {
+            if (interval) {
+                clearInterval(interval);
+            }
+            $('#timer').removeClass("text-red");
+            var timer = duration, minutes, seconds;
+            interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                $('#timer').text(minutes + ":" + seconds);
+
+                if (--timer < 0) {
+                    timer = 0;
+                    $('#timer').addClass("text-red");
+                    var sound = document.getElementById("audio");
+                    sound.play();
+                    clearInterval(interval);
+                }
+            }, 1000);
+        }
+
+        $(document).ready(function () {
+            $('.check:button').toggle(function () {
+                $('input:checkbox').attr('checked', 'checked');
+                $(this).val('uncheck all')
+            }, function () {
+                $('input:checkbox').removeAttr('checked');
+                $(this).val('check all');
+            })
+        })
+
+
         function checkGhosts() {
             $(".card").each(function (index) {
                 $(this).removeClass("green");
@@ -404,7 +467,7 @@
             $(".red").each(function (index) {
                 $(this).parent().show();
             });
-            
+
             $(".green").each(function (index) {
                 $(this).parent().show();
             });
@@ -416,13 +479,6 @@
             }
         }
     </script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"
-        integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD"
-        crossorigin="anonymous"></script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 </body>
 
 </html>
