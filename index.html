@@ -29,11 +29,7 @@
 </head>
 
 <body>
-    <!-- Audio from https://www.soundjay.com/ -->
-    <audio id="audio" src="beep-07.wav" autoplay="false"></audio>
-
     <main class="container">
-
         <div class="mx-auto text-center">
             <h1 class="display-4">Ghost Picker+</h1>
         </div>
@@ -133,7 +129,7 @@
         <div class="row">
             <div class="col-12 mb-4">
                 <button class="btn btn-primary" onclick="reset()">Reset</button>
-                <button class="btn btn-primary" onclick="startTimer(2)">2 Minute Timer (Intermediate)</button>
+                <button class="btn btn-primary" onclick="startTimer(120)">2 Minute Timer (Intermediate)</button>
                 <button class="btn btn-primary" onclick="startTimer(300)">5 Minute Timer (Amateur)</button>
                 <h3 id="timer"></h3>
             </div>
@@ -356,8 +352,11 @@
                 if (--timer < 0) {
                     timer = 0;
                     $('#timer').addClass("text-red");
-                    var sound = document.getElementById("audio");
+
+                    // Audio from https://www.soundjay.com/
+                    var sound = new Audio('beep-07.wav');
                     sound.play();
+
                     clearInterval(interval);
                 }
             }, 1000);
